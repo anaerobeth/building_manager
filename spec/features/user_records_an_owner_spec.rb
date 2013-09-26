@@ -80,6 +80,8 @@ feature 'Record an Owner', %Q{
     click_link 'Delete'
     expect(page).to have_content('Owner was successfully deleted')
     expect(Owner.count).to eql(prev_owner_count - 1)
+    prev_owned_building = Building.where('owner_id = ?', owner.id).last
+    expect(prev_owned_building).to eql(nil)
 
    end
 
