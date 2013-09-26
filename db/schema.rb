@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20130926182935) do
     t.string   "street_address", null: false
     t.string   "city",           null: false
     t.string   "state",          null: false
-    t.integer  "postal_code",    null: false
+    t.string   "postal_code",    null: false
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
