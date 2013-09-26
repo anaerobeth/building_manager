@@ -12,5 +12,4 @@ describe Owner do
   it { should_not have_valid(:email).when(nil, '', 'bananas') }
 
 
-
 end

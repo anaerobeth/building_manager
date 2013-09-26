@@ -24,7 +24,7 @@ feature 'Record an Owner', %Q{
   scenario 'enters information in the required format' do
     prev_count = Owner.count
     visit new_owner_url
-    fill_in 'First_name', with: 'Dave '
+    fill_in 'First name', with: 'Dave '
     fill_in 'Last name', with: 'Thomas'
     fill_in 'Email', with: 'dave@gmail.com'
     fill_in 'Company name', with: 'Trump Realty'
