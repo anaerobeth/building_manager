@@ -62,11 +62,10 @@ feature 'Record an Owner', %Q{
   end
 
   scenario 'deleting an owner removes association with any properties' do
-    prev_owner_count = Owner.count
-
     owner = Owner.new(first_name: 'Dave', last_name: 'Thomas', email: 'dave@gmail.com')
     owner.save!
 
+    prev_owner_count = Owner.count
     building = Building.new(street_address: '15 Kneeland',
     city: 'Boston',
     state: 'MA',
