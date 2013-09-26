@@ -8,7 +8,8 @@ class Owner < ActiveRecord::Base
     :message => "should be a valid email address"
 
   has_many :buildings,
-    inverse_of: :owners,
+    inverse_of: :owner,
     dependent: :nullify
+
 
 end
