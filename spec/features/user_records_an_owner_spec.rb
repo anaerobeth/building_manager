@@ -34,12 +34,12 @@ feature 'Record an Owner', %Q{
     expect(Owner.count).to eql(prev_count + 1)
   end
 
-  # scenario 'does not enter information in the required format' do
-  #   prev_count = Owner.count
-  #   visit new_building_url
+  scenario 'does not enter information in the required format' do
+    prev_count = Owner.count
+    visit new_building_url
 
-  #   click_button 'Record'
-  #   expect(page).to_not have_content('Owner was successfully recorded')
-  #   expect(Owner.count).to eql(prev_count)
-  # end
+    click_button 'Record'
+    expect(page).to_not have_content('Owner was successfully recorded')
+    expect(Owner.count).to eql(prev_count)
+  end
 end
