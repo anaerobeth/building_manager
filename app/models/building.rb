@@ -67,6 +67,7 @@ VALID_STATES = [
 
 
   belongs_to :owners,
-    inverse_of: :building
+    inverse_of: :building,
+    dependent: :destroy
 
 end
