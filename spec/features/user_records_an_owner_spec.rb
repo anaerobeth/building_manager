@@ -45,6 +45,7 @@ feature 'Record an Owner', %Q{
 
   scenario 'recording building adds association with owner' do
     owner = Owner.new(first_name: 'Dave', last_name: 'Thomas', email: 'dave@gmail.com')
+    owner.save!
     prev_count = Building.count
     visit new_building_url
     fill_in 'Street address', with: '15 Kneeland'
@@ -52,18 +53,19 @@ feature 'Record an Owner', %Q{
     fill_in 'State', with: 'MA'
     fill_in 'Postal code', with: '42111'
     fill_in 'Description', with: 'Luxury Loft'
-    fill_in 'Owner id', with: owner.id
+    fill_in 'Owner', with: owner.id
     click_button 'Record'
 
     expect(page).to have_content('Building was successfully recorded')
     expect(Building.count).to eql(prev_count + 1)
-    expect(Building.last.owner.email).to eql('dave@gmail.com')
+    expect(Building.last.owner_id).to eql(owner.id)
   end
 
   scenario 'deleting an owner removes association with any properties' do
     prev_owner_count = Owner.count
 
     owner = Owner.new(first_name: 'Dave', last_name: 'Thomas', email: 'dave@gmail.com')
+    owner.save!
 
     building = Building.new(street_address: '15 Kneeland',
     city: 'Boston',
@@ -72,12 +74,14 @@ feature 'Record an Owner', %Q{
     description: 'Luxury Loft',
     owner_id: owner.id)
 
+    building.save!
+
     visit owners_path
 
     click_link 'Delete'
     expect(page).to have_content('Owner was successfully deleted')
     expect(Owner.count).to eql(prev_owner_count - 1)
 
-  end
+   end
 
 end

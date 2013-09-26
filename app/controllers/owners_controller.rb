@@ -18,11 +18,15 @@ class OwnersController < ApplicationController
   end
 
   def destroy
- def destroy
-    Owner.find(owner_params).destroy
+    @owner = Owner.find(params[:id])
+    @owner.destroy
     redirect_to owners_path, notice: "Owner was successfully deleted"
+
+
   end
 
+  def show
+    @owners = Owner.all
   end
 
   protected
