@@ -62,6 +62,7 @@ feature 'Record an Owner', %Q{
 
   scenario 'deleting an owner removes association with any properties' do
     prev_owner_count = Owner.count
+
     owner = Owner.new(first_name: 'Dave', last_name: 'Thomas', email: 'dave@gmail.com')
 
     building = Building.new(street_address: '15 Kneeland',
@@ -71,9 +72,9 @@ feature 'Record an Owner', %Q{
     description: 'Luxury Loft',
     owner_id: owner.id)
 
-    visit owners_url
+    visit owners_path
 
-    click_button 'Delete'
+    click_link 'Delete'
     expect(page).to have_content('Owner was successfully deleted')
     expect(Owner.count).to eql(prev_owner_count - 1)
 
