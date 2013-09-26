@@ -62,4 +62,6 @@ VALID_STATES = [
     :with => /\A\d{5}\z/,
     :message => "should be 12345"
 
+  # belongs_to :owner
+
 end
