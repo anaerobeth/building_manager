@@ -22,11 +22,11 @@ feature 'Record a building', %Q{
     fill_in 'Street address', with: '15 Kneeland'
     fill_in 'City', with: 'Boston'
     fill_in 'State', with: 'MA'
-    fill_in 'Postal code', with: '02111'
+    fill_in 'Postal code', with: '42111'
     fill_in 'Description', with: 'Luxury Loft'
 
     click_button 'Record'
-    expect(page).to have_content('Building recorded')
+    expect(page).to have_content('Building was successfully recorded')
     expect(Building.count).to eql(prev_count + 1)
   end
 
