@@ -17,6 +17,12 @@ class TenantsController < ApplicationController
     @tenants = Tenant.order('last_name')
   end
 
+  def destroy
+    @tenant = Tenant.find(params[:id])
+    @tenant.destroy
+    redirect_to tenants_path, notice: "Tenant was successfully deleted"
+  end
+
   protected
 
   def tenant_params

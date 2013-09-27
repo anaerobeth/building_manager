@@ -22,6 +22,8 @@ feature 'Record a Tenant', %Q{
   # There is a page that lists all of my tenants sorted by last name and first name.
   # I can see where each tenant lives and what their email address is.
 
+
+
   scenario 'enters information in the required format' do
 
     prev_count = Tenant.count
@@ -54,6 +56,27 @@ feature 'Record a Tenant', %Q{
     expect(page).to have_content("Tenorio")
     expect(page).to have_content("beth@gmail.com")
   end
+
+  scenario 'tenant is evicted' do
+    tenant = Tenant.new(first_name: 'Beth', last_name: 'Tenorio', email: 'beth@gmail.com', building_id: 2)
+    tenant.save!
+    prev_tenant_count = Tenant.count
+
+    visit tenants_path
+    expect(page).to have_content("List of tenants")
+    expect(page).to have_content("Tenorio")
+    expect(page).to have_content("beth@gmail.com")
+
+    click_link 'Delete'
+    expect(page).to have_content('Tenant was successfully deleted')
+    expect(Tenant.count).to eql(prev_tenant_count - 1)
+
+    visit tenants_path
+    expect(page).to_not have_content("Tenorio")
+    expect(page).to_not have_content("beth@gmail.com")
+
+  end
+
 
 
 
