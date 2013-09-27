@@ -1,0 +1,30 @@
+<%= notice %></p>
+<h1>Listing buildings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Street Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Description</th>
+      <th>Owner ID</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buildings.each do |building| %>
+      <tr>
+        <td><%= building.street_address %></td>
+        <td><%= building.city %></td>
+        <td><%= building.state %></td>
+        <td><%= building.description %></td>
+        <td><%= building.owner_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New building', new_building_path %>
