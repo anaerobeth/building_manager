@@ -48,6 +48,7 @@ feature 'Record a Tenant', %Q{
 
   scenario 'tenant information is listed' do
     tenant = Tenant.new(first_name: 'Beth', last_name: 'Tenorio', email: 'beth@gmail.com', building_id: 2)
+    tenant.save!
     visit tenants_path
     expect(page).to have_content("List of tenants")
     expect(page).to have_content("Tenorio")
