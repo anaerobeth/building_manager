@@ -28,7 +28,6 @@ class TenantsController < ApplicationController
   end
 
   protected
-
   def tenant_params
     params.require(:tenant).permit(:last_name, :first_name, :building_id, :email, :description)
   end

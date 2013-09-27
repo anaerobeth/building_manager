@@ -58,9 +58,9 @@ VALID_STATES = [
   validates_inclusion_of :state,
     in: VALID_STATES
 
-  # validates_format_of :postal_code,
-  #   :with => /\A\d{5}\z/,
-  #   :message => "should be 12345"
+  validates_format_of :postal_code,
+    :with => /\A\d{5}\z/,
+    :message => "should be 12345"
 
   validates_length_of :postal_code,
     :is => 5

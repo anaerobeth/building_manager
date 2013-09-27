@@ -22,12 +22,11 @@ class OwnersController < ApplicationController
     @owner = Owner.find(params[:id])
     @owner.destroy
     redirect_to owners_path, notice: "Owner was successfully deleted"
-
-
   end
 
   def show
     @owners = Owner.all
+    @owners.order('last_name')
   end
 
   protected
