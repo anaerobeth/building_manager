@@ -29,7 +29,7 @@ feature 'Record a Tenant', %Q{
     fill_in 'First name', with: 'Diane '
     fill_in 'Last name', with: 'Thomas'
     fill_in 'Email', with: 'diane@gmail.com'
-    fill_in 'Building Id', with: 2
+    fill_in 'Building', with: 2
 
     click_button 'Record'
     expect(page).to have_content('Tenant was successfully recorded')
@@ -43,7 +43,7 @@ feature 'Record a Tenant', %Q{
 
     click_button 'Record'
     expect(page).to_not have_content('Tenant was successfully recorded')
-    expect(Tenantr.count).to eql(prev_count)
+    expect(Tenant.count).to eql(prev_count)
   end
 
 end
