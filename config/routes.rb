@@ -1,4 +1,6 @@
 BuildingManager::Application.routes.draw do
+  resources :tenants
+
   resources :buildings
 
   resources :owners
