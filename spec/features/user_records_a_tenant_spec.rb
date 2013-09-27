@@ -46,4 +46,14 @@ feature 'Record a Tenant', %Q{
     expect(Tenant.count).to eql(prev_count)
   end
 
+  scenario 'tenant information is listed' do
+    tenant = Tenant.new(first_name: 'Beth', last_name: 'Tenorio', email: 'beth@gmail.com', building_id: 2)
+    visit tenants_path
+    expect(page).to have_content("List of tenants")
+    expect(page).to have_content("Tenorio")
+    expect(page).to have_content("beth@gmail.com")
+  end
+
+
+
 end

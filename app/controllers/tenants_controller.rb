@@ -13,6 +13,10 @@ class TenantsController < ApplicationController
     end
   end
 
+  def index
+    @tenants = Tenant.all
+  end
+
   protected
 
   def tenant_params
