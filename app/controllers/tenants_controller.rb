@@ -23,6 +23,10 @@ class TenantsController < ApplicationController
     redirect_to tenants_path, notice: "Tenant was successfully deleted"
   end
 
+  def show
+    @tenants = Tenant.all
+  end
+
   protected
 
   def tenant_params

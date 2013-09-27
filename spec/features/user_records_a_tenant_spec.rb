@@ -58,20 +58,25 @@ feature 'Record a Tenant', %Q{
   end
 
   scenario 'tenant is evicted' do
-    tenant = Tenant.new(first_name: 'Beth', last_name: 'Tenorio', email: 'beth@gmail.com', building_id: 2)
-    tenant.save!
+    tenant = Tenant.create(first_name: 'Beth', last_name: 'Tenorio', email: 'beth@gmail.com', building_id: 2)
+    Tenant.create(first_name: 'Emily', last_name: 'Lopez', email: 'beth2@gmail.com', building_id: 3)
+    # tenant.save!
     prev_tenant_count = Tenant.count
 
     visit tenants_path
+
     expect(page).to have_content("List of tenants")
     expect(page).to have_content("Tenorio")
     expect(page).to have_content("beth@gmail.com")
+    within(".tenant_#{tenant.id}") do
+      click_link 'Delete'
+    end
 
-    click_link 'Delete'
     expect(page).to have_content('Tenant was successfully deleted')
     expect(Tenant.count).to eql(prev_tenant_count - 1)
 
     visit tenants_path
+    expect(page).to have_content("List of tenants")
     expect(page).to_not have_content("Tenorio")
     expect(page).to_not have_content("beth@gmail.com")
 

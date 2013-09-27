@@ -74,15 +74,18 @@ feature 'Record an Owner', %Q{
     owner_id: owner.id)
 
     building.save!
+    owned_buildings_count = Building.where('owner_id = ?', owner.id).count
+    expect(owned_buildings_count).to eql(1)
 
     visit owners_path
-
     click_link 'Delete'
+
     expect(page).to have_content('Owner was successfully deleted')
     expect(Owner.count).to eql(prev_owner_count - 1)
-    prev_owned_building = Building.where('owner_id = ?', owner.id).last
-    expect(prev_owned_building).to eql(nil)
-
+    prev_owned_buildings = Building.where('owner_id = ?', owner.id).last
+    expect(prev_owned_buildings).to eql(nil)
+    prev_owned_buildings_count = Building.where('owner_id = ?', owner.id).count
+    expect(prev_owned_buildings_count).to eql(0)
    end
 
 end
