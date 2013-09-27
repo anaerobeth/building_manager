@@ -11,5 +11,9 @@ class Owner < ActiveRecord::Base
     inverse_of: :owner,
     dependent: :nullify
 
+  has_many :tenants,
+    through: :buildings,
+    inverse_of: :owner
+
 
 end
