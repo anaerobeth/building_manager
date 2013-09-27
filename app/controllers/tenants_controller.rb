@@ -14,7 +14,7 @@ class TenantsController < ApplicationController
   end
 
   def index
-    @tenants = Tenant.all
+    @tenants = Tenant.order('last_name')
   end
 
   protected

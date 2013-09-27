@@ -15,6 +15,7 @@ class OwnersController < ApplicationController
 
   def index
     @owners = Owner.all
+    @owners.order('last_name')
   end
 
   def destroy
