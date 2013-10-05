@@ -23,8 +23,8 @@ class TenantsController < ApplicationController
     redirect_to tenants_path, notice: "Tenant was successfully deleted"
   end
 
-  def show
-    @tenants = Tenant.all
+  def index
+    @tenants = Tenant.order('last_name')
   end
 
   protected

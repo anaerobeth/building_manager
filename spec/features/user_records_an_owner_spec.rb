@@ -44,8 +44,9 @@ feature 'Record an Owner', %Q{
   end
 
   scenario 'recording building adds association with owner' do
-    owner = Owner.new(first_name: 'Dave', last_name: 'Thomas', email: 'dave@gmail.com')
-    owner.save!
+    owner = Owner.create(first_name: 'Dave', last_name: 'Thomas',
+      email: 'dave@gmail.com')
+
     prev_count = Building.count
     visit new_building_url
     fill_in 'Street address', with: '15 Kneeland'
@@ -62,8 +63,7 @@ feature 'Record an Owner', %Q{
   end
 
   scenario 'deleting an owner removes association with any properties' do
-    owner = Owner.new(first_name: 'Dave', last_name: 'Thomas', email: 'dave@gmail.com')
-    owner.save!
+    owner = Owner.create(first_name: 'Dave', last_name: 'Thomas', email: 'dave@gmail.com')
 
     prev_owner_count = Owner.count
     building = Building.new(street_address: '15 Kneeland',
@@ -82,8 +82,6 @@ feature 'Record an Owner', %Q{
 
     expect(page).to have_content('Owner was successfully deleted')
     expect(Owner.count).to eql(prev_owner_count - 1)
-    prev_owned_buildings = Building.where('owner_id = ?', owner.id).last
-    expect(prev_owned_buildings).to eql(nil)
     prev_owned_buildings_count = Building.where('owner_id = ?', owner.id).count
     expect(prev_owned_buildings_count).to eql(0)
    end

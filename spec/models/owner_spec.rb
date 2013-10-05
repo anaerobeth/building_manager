@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe Owner do
 
+  it { should have_many(:tenants) }
+  it { should have_many(:buildings) }
+
   it { should have_valid(:first_name).when('Diane', 'Susan') }
   it { should_not have_valid(:first_name).when(nil, '') }
 

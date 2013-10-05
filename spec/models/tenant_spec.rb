@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Tenant do
 
+  it { should belong_to(:building) }
+  it { should have_one(:owner) }
+
+
   it { should have_valid(:first_name).when('Ron', 'Susan') }
   it { should_not have_valid(:first_name).when(nil, '') }
 

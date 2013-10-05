@@ -8,9 +8,12 @@ feature 'Record a Tenant', %Q{
 
   # Acceptance Criteria:
 
-  # I must specify a first name, last name, building they're renting in, and valid email address.
-  # If the tenant information is valid, the tenant is associated with the building. The information is persisted.
-  # If the tenant information is invalid, an error message is supplied so the landlord can fix the entry. The information is not persisted.
+  # * I must specify a first name, last name, building they're renting in,
+  #   and valid email address.
+  # * If the tenant information is valid, the tenant is associated with the
+  #   building. The information is persisted.
+  # * If the tenant information is invalid, an error message is supplied so
+  #   the landlord can fix the entry. The information is not persisted.
 
   # Also covers:
   # As an owner
@@ -19,9 +22,9 @@ feature 'Record a Tenant', %Q{
 
   # Acceptance Criteria:
 
-  # There is a page that lists all of my tenants sorted by last name and first name.
-  # I can see where each tenant lives and what their email address is.
-
+  # * There is a page that lists all of my tenants sorted by last name and
+  # first name.
+  # * I can see where each tenant lives and what their email address is.
 
 
   scenario 'enters information in the required format' do
@@ -49,8 +52,14 @@ feature 'Record a Tenant', %Q{
   end
 
   scenario 'tenant information is listed' do
-    tenant = Tenant.new(first_name: 'Beth', last_name: 'Tenorio', email: 'beth@gmail.com', building_id: 2)
-    tenant.save!
+    owner = Owner.create(first_name: 'Dave', last_name: 'Thomas', email: 'dave@gmail.com')
+    building = Building.create(street_address: '15 Kneeland', city: 'Boston',
+      state: 'MA', postal_code: 42111, description: 'Luxury Loft',
+      owner_id: owner.id)
+
+    tenant = Tenant.create(first_name: 'Beth', last_name: 'Tenorio',
+      email: 'beth@gmail.com', building_id: building.id)
+
     visit tenants_path
     expect(page).to have_content("List of tenants")
     expect(page).to have_content("Tenorio")
@@ -58,9 +67,10 @@ feature 'Record a Tenant', %Q{
   end
 
   scenario 'tenant is evicted' do
-    tenant = Tenant.create(first_name: 'Beth', last_name: 'Tenorio', email: 'beth@gmail.com', building_id: 2)
-    Tenant.create(first_name: 'Emily', last_name: 'Lopez', email: 'beth2@gmail.com', building_id: 3)
-    # tenant.save!
+    tenant = Tenant.create(first_name: 'Beth', last_name: 'Tenorio',
+      email: 'beth@gmail.com', building_id: 2)
+    Tenant.create(first_name: 'Emily', last_name: 'Lopez',
+      email: 'beth2@gmail.com', building_id: 3)
     prev_tenant_count = Tenant.count
 
     visit tenants_path
@@ -79,10 +89,6 @@ feature 'Record a Tenant', %Q{
     expect(page).to have_content("List of tenants")
     expect(page).to_not have_content("Tenorio")
     expect(page).to_not have_content("beth@gmail.com")
-
   end
-
-
-
 
 end

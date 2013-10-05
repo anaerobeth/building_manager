@@ -16,5 +16,8 @@ class Owner < ActiveRecord::Base
     through: :buildings,
     inverse_of: :owner
 
+  def full_name
+    '#{first_name} #{last_name}'
+  end
 
 end

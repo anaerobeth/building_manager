@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Building do
+
+  it { should belong_to(:owner) }
+  it { should have_many(:tenants) }
+
   it { should have_valid(:street_address).when('15 Kneeland', '51 Linden') }
   it { should_not have_valid(:street_address).when(nil, '') }
 

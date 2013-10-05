@@ -1,4 +1,5 @@
 <%= notice %></p>
+
 <h1>Listing buildings</h1>
 
 <table>
@@ -8,7 +9,8 @@
       <th>City</th>
       <th>State</th>
       <th>Description</th>
-      <th>Owner ID</th>
+      <th>Owner</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -19,7 +21,8 @@
         <td><%= building.city %></td>
         <td><%= building.state %></td>
         <td><%= building.description %></td>
-        <td><%= building.owner_id %></td>
+        <td><%= building.first_name %></td>
+        <td><%= building.last_name %></td>
       </tr>
     <% end %>
   </tbody>
