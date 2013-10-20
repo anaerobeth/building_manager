@@ -21,6 +21,7 @@ class TenantsController < ApplicationController
     @tenant = Tenant.find(params[:id])
     @tenant.destroy
     flash[:notice] = "Tenant was successfully deleted"
+    redirect_to tenants_path
   end
 
   def index
