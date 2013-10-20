@@ -48,7 +48,6 @@ end
 group :test, :development do
   gem 'capybara'
   gem 'factory_girl'
-  #gem 'factory_girl_rails'
   gem 'launchy'
   gem 'quiet_assets'
   gem 'rspec-rails'
@@ -57,4 +56,5 @@ group :test, :development do
   gem 'pry-rails'
 end
 
-
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
