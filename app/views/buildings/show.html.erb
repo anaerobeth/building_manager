@@ -1,0 +1,9 @@
+<h1>New Building</h1>
+  <ul>
+    <li><%= @building.street_address %></li>
+    <li><%= @building.city + ' ' + @building.state + ' ' + @building.postal_code %></li>
+    <li><%= @building.description %></li>
+  </ul>
+<br>
+
+<h4><%= link_to 'Add a new building', new_building_path %></h4>

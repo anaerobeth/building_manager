@@ -1,42 +1,46 @@
-<%= form_for @tenant do |f| %>
+<% @tenant.errors.full_messages.each do | error | %>
+  <%= content_tag :p, error %>
+<% end %>
 
-<% if @tenant.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@tenant.errors.count, "error") %> prohibited this event from being saved:</h2>
+<form role="form">
+  <%= form_for @tenant do |f| %>
 
-    <ul>
-    <% @tenant.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% if @tenant.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@tenant.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+        <ul>
+          <% @tenant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-    </ul>
-  </div>
-<% end %>
 
-<div class="field">
-  <%= f.label :first_name %><br />
-  <%= f.text_field :first_name %>
-</div>
+    <div class="field form-group">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </div>
 
-<div class="field">
-  <%= f.label :last_name %><br />
-  <%= f.text_field :last_name %>
-</div>
+    <div class="field form-group">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </div>
 
 
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.text_field :email %>
-</div>
+    <div class="field form-group">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
 
+    <div class="field form-group">
+      <%= f.label :building_id %><br />
+      <%= f.text_field :building_id %>
+    </div>
 
-<div class="field">
-  <%= f.label :building_id %><br />
-  <%= f.text_field :building_id %>
-</div>
+    <div class="actions">
+      <%= f.submit 'Record', class: "btn btn-default" %>
+    </div>
 
-
-<div class="actions">
-  <%= f.submit 'Record'%>
-</div>
-
-<% end %>
+  <% end %>
+</form>

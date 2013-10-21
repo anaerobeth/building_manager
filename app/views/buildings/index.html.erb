@@ -1,33 +1,17 @@
-<%= notice %></p>
+<h1>List of Buildings</h1>
 
-<h1>Listing buildings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Street Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Description</th>
-      <th>Owner</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div>
     <% @buildings.each do |building| %>
-      <tr>
-        <td><%= building.street_address %></td>
-        <td><%= building.city %></td>
-        <td><%= building.state %></td>
-        <td><%= building.description %></td>
-        <td><%= building.first_name %></td>
-        <td><%= building.last_name %></td>
-      </tr>
+      <ul>
+        <li>Building Address:</li>
+        <li><%= building.street_address %></li>
+        <li><%= building.city + ' ' + building.state  %></li>
+        <li>Description: <%= building.description %></li>
+        <% owner = Owner.find(building.owner_id) %>
+        <li>Building Owner: <%= owner.first_name + ' ' + owner.last_name %></li>
+      </ul>
+      <hr />
     <% end %>
-  </tbody>
-</table>
-
+  </div>
 <br>
-
-<%= link_to 'New building', new_building_path %>
+<h4><%= link_to 'Add a new building', new_building_path %></h4>
