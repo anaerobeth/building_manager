@@ -1,7 +1,3 @@
-<% @owner.errors.full_messages.each do | error | %>
-  <%= content_tag :p, error %>
-<% end %>
-
   <%= form_for @owner do |f| %>
 
     <% if @owner.errors.any? %>

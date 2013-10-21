@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Building Manager</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div>
-<h1> Building Management System </h1>
-  <hr />
-  <ul>
-    <li><%= link_to 'Buildings', buildings_path %></li>
-    <li><%= link_to 'Owners', owners_path %></li>
-    <li><%= link_to 'Tenants', tenants_path %></li>
-  </ul>
-</div>
-<div>
+
+  <div class="col-md-10 col-md-offset-1">
+      <h1>Building Management System</h1>
+  </div>
+
+  <div class="col-md-10 col-md-offset-1">
+    <ul class="nav nav-tabs">
+      <li><%= link_to 'Buildings', buildings_path %></li>
+      <li><%= link_to 'Owners', owners_path %></li>
+      <li><%= link_to 'Tenants', tenants_path %></li>
+    </ul>
+  </div>
+
+  <div class="col-md-10 col-md-offset-1">
   <%= notice %>
 
   <%= yield %>
-</div>
+  </div>
 </body>
 </html>
