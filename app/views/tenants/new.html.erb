@@ -2,7 +2,7 @@
   <%= content_tag :p, error %>
 <% end %>
 
-<form role="form">
+
   <%= form_for @tenant do |f| %>
 
     <% if @tenant.errors.any? %>
@@ -39,8 +39,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit 'Record', class: "btn btn-default" %>
+      <%= f.submit 'Record', method: "post", class: "btn btn-default" %>
     </div>
 
   <% end %>
-</form>

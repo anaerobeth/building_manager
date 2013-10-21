@@ -79,7 +79,7 @@ feature 'Record a Tenant', %Q{
     expect(page).to have_content("Tenorio")
     expect(page).to have_content("beth@gmail.com")
     within(".tenant_#{tenant.id}") do
-      click_link 'Delete'
+      click_button 'Delete'
     end
 
     expect(page).to have_content('Tenant was successfully deleted')
