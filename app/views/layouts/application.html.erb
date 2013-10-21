@@ -7,11 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div>
+<h1> Building Management System </h1>
+  <hr />
+  <ul>
+    <li><%= link_to 'Buildings', buildings_path %></li>
+    <li><%= link_to 'Owners', owners_path %></li>
+    <li><%= link_to 'Tenants', tenants_path %></li>
+  </ul>
+</div>
+<div>
   <%= notice %>
 
   <%= yield %>
-
-
+</div>
 </body>
 </html>

@@ -2,7 +2,7 @@
   <%= content_tag :p, error %>
 <% end %>
 
-<form role="form">
+
   <%= form_for @building do |f| %>
 
     <% if @building.errors.any? %>
@@ -48,8 +48,8 @@
     </div>
 
     <div class="actions">
-      <%= f.submit 'Record', class: "btn btn-default" %>
+      <%= f.submit 'Record', class: "submit btn btn-default" %>
     </div>
 
   <% end %>
-</form>
+

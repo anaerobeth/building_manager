@@ -78,7 +78,7 @@ feature 'Record an Owner', %Q{
     expect(owned_buildings_count).to eql(1)
 
     visit owners_path
-    click_link 'Delete'
+    click_button 'Delete'
 
     expect(page).to have_content('Owner was successfully deleted')
     expect(Owner.count).to eql(prev_owner_count - 1)
