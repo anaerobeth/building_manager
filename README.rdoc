@@ -1,23 +1,25 @@
 == README
 
-A simple Rails 4.0 app for managing buildings and tenants.
+=== A simple Rails 4.0 app for managing buildings and tenants.
 
 An Apollo assessment exercise at Launch Academy.
 
 
-Ruby and Rails version
+=== Ruby and Rails version
 * Rails 4.0.0
 * Ruby 2.0.0
 
-Database
+=== Database
 * PostgreSQL 9.2.4
 
-Test suite
+=== Test suite
 * Rspec 2.14
 
-How to use
+=== How to use
 
 1. run ‘git clone github.com/anaerobeth/building-manager.git’
 2. run ‘bundle’
 3. copy config/database.example.yml to config/database.yml
 4. run ‘rake db:setup’
+
+Demo website: http://building-manager.herokuapp.com
