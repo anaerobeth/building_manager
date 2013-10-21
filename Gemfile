@@ -58,3 +58,5 @@ end
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
+
+gem 'rails_12factor', group: :production
