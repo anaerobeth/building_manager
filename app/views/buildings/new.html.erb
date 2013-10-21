@@ -39,7 +39,7 @@
 
     <div class="field form-group">
       <%= f.label :owner_id %><br />
-      <%= f.text_field :owner_id %>
+      <%= f.collection_select :owner_id, Owner.all, :id, :first_name, include_blank: true %>
     </div>
 
     <div class="actions">

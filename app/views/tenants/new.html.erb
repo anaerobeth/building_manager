@@ -22,7 +22,6 @@
       <%= f.text_field :last_name %>
     </div>
 
-
     <div class="field form-group">
       <%= f.label :email %><br />
       <%= f.text_field :email %>
@@ -30,7 +29,7 @@
 
     <div class="field form-group">
       <%= f.label :building_id %><br />
-      <%= f.text_field :building_id %>
+      <%= f.collection_select :building_id, Building.all, :id, :street_address, include_blank: true %>
     </div>
 
     <div class="actions">

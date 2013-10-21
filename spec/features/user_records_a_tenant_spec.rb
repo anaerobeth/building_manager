@@ -28,13 +28,15 @@ feature 'Record a Tenant', %Q{
 
 
   scenario 'enters information in the required format' do
+    building = Building.create(street_address: '15 Kneeland', city: 'Boston',
+      state: 'MA', postal_code: 42111, description: 'Luxury Loft')
 
     prev_count = Tenant.count
     visit new_tenant_url
     fill_in 'First name', with: 'Diane '
     fill_in 'Last name', with: 'Thomas'
     fill_in 'Email', with: 'diane@gmail.com'
-    fill_in 'Building', with: 2
+    select '15 Kneeland'
 
     click_button 'Record'
     expect(page).to have_content('Tenant was successfully recorded')

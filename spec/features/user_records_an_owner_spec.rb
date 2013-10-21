@@ -54,7 +54,7 @@ feature 'Record an Owner', %Q{
     fill_in 'State', with: 'MA'
     fill_in 'Postal code', with: '42111'
     fill_in 'Description', with: 'Luxury Loft'
-    fill_in 'Owner', with: owner.id
+    select 'Dave'
     click_button 'Record'
 
     expect(page).to have_content('Building was successfully recorded')

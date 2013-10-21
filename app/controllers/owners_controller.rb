@@ -28,7 +28,6 @@ class OwnersController < ApplicationController
     @owner = Owner.find(params[:id])
   end
 
-
   protected
 
   def owner_params
