@@ -18,5 +18,4 @@ class Tenant < ActiveRecord::Base
     through: :buildings,
     inverse_of: :tenants
 
-
 end

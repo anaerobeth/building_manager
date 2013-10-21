@@ -65,9 +65,8 @@ VALID_STATES = [
   validates_length_of :postal_code,
     :is => 5
 
-
   belongs_to :owner,
-    inverse_of: :building
+    inverse_of: :buildings
 
   has_many :tenants,
     inverse_of: :building

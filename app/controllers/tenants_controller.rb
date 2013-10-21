@@ -1,4 +1,5 @@
 class TenantsController < ApplicationController
+
   def new
     @tenant = Tenant.new
   end
@@ -7,7 +8,7 @@ class TenantsController < ApplicationController
     @tenant = Tenant.new(tenant_params)
     if @tenant.save
       flash[:notice] = "Tenant was successfully recorded"
-      redirect_to new_tenant_path
+      redirect_to @tenant
     else
       render :new
     end
@@ -29,8 +30,9 @@ class TenantsController < ApplicationController
   end
 
   def show
-
+    @tenant = Tenant.find(params[:id])
   end
+
 
   protected
   def tenant_params

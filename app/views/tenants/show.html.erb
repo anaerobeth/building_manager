@@ -1,2 +1,8 @@
+<h1>New Tenant</h1>
+  <ul>
+    <li><%= @tenant.first_name + ' ' + @tenant.last_name %></li>
+    <li><%= @tenant.email %></li>
+  </ul>
+<br>
 
-<%= link_to 'New tenant', new_tenant_path %>
+<h4><%= link_to 'Add a new tenant', new_tenant_path %></h4>

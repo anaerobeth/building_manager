@@ -11,10 +11,14 @@ class BuildingsController < ApplicationController
     @building = Building.new(building_params)
     if @building.save
       flash[:notice] = "Building was successfully recorded"
-      redirect_to new_building_path
+      redirect_to @building
     else
       render :new
     end
+  end
+
+  def show
+    @building = Building.find(params[:id])
   end
 
   protected
