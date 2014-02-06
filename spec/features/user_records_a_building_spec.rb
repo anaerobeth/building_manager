@@ -26,7 +26,7 @@ feature 'Record a building', %Q{
     fill_in 'City', with: 'Boston'
     fill_in 'State', with: 'MA'
     fill_in 'Postal code', with: '42111'
-    fill_in 'Description', with: 'Luxury Loft'
+    fill_in 'Description', with: 'Boston Hotel'
 
     click_button 'Record'
     expect(page).to have_content('Building was successfully recorded')
