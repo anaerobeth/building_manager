@@ -4,8 +4,8 @@
     <ul class=" main tenant_<%= tenant.id %>">
       <li><%= tenant.first_name + ' ' + tenant.last_name %></li>
       <li><%= tenant.email %></li>
-      <li><%= tenant.building.street_address %></li>
-      <li><%= tenant.building.city %></li>
+      <li>Building: <%= tenant.building.street_address + ' ' + tenant.building.city %></li>
+      <li>Building owner: <%= tenant.building.owner.first_name + ' ' + tenant.building.owner.last_name %></li>
       <li><%= button_to 'Delete', tenant, method: :delete, data: { confirm: 'Are you sure you want to delete this tenant?' } %></li>
     </ul>
   <% end %>

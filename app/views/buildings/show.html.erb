@@ -4,6 +4,7 @@
       <li><%= @building.street_address %></li>
       <li><%= @building.city + ' ' + @building.state + ' ' + @building.postal_code %></li>
       <li><%= @building.description %></li>
+      <li><%= button_to 'Delete', @building, method: :delete, data: { confirm: 'Are you sure you want to delete this building?' } %></li>
     </ul>
   </div>
 <br>
