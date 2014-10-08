@@ -21,5 +21,3 @@ An Apollo assessment exercise at Launch Academy.
 2. run ‘bundle’
 3. copy config/database.example.yml to config/database.yml
 4. run ‘rake db:setup’
-
-Demo website: http://building-manager.herokuapp.com
