@@ -1,7 +1,9 @@
 <h1>New Owner/h1>
-  <ul>
-    <li><%= @owner.first_name + ' ' + @owner.last_name %></li>
-  </ul>
+  <div  class='main'>
+    <ul>
+      <li><%= @owner.first_name + ' ' + @owner.last_name %></li>
+    </ul>
+  </div>
 <br>
 
 <h4><%= link_to 'Add a new owner', new_owner_path %></h4>

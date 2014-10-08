@@ -1,8 +1,8 @@
 <h1>List of Buildings</h1>
 
-  <div>
     <% @buildings.each do |building| %>
-      <ul>
+     <div>
+      <ul class='main'>
         <li>Building Address:</li>
         <li><%= building.street_address %></li>
         <li><%= building.city + ' ' + building.state  %></li>
@@ -11,7 +11,7 @@
         <li>Building Owner: <%= owner.first_name + ' ' + owner.last_name %></li>
       </ul>
       <hr />
+    </div>
     <% end %>
-  </div>
 <br>
 <h4><%= link_to 'Add a new building', new_building_path %></h4>
