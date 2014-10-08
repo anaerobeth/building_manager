@@ -23,21 +23,6 @@
     </div>
 
     <div class="field form-group">
-      <%= f.label :state %><br />
-      <%= f.text_field :state %>
-    </div>
-
-    <div class="field form-group">
-      <%= f.label :postal_code %><br />
-      <%= f.text_field :postal_code %>
-    </div>
-
-    <div class="field form-group">
-      <%= f.label :description %><br />
-      <%= f.text_field :description %>
-    </div>
-
-    <div class="field form-group">
       <%= f.label :owner_id %><br />
       <%= f.collection_select :owner_id, Owner.all, :id, :first_name, include_blank: true %>
     </div>

@@ -6,7 +6,6 @@
         <li>Building Address:</li>
         <li><%= building.street_address %></li>
         <li><%= building.city + ' ' + building.state  %></li>
-        <li>Description: <%= building.description %></li>
         <% owner = Owner.find(building.owner_id) %>
         <li>Building Owner: <%= owner.first_name + ' ' + owner.last_name %></li>
         <li><%= button_to 'Delete', building, method: :delete, data: { confirm: 'Are you sure you want to delete this building?' } %></li>
