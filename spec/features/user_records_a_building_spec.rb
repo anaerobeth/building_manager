@@ -33,13 +33,5 @@ feature 'Record a building', %Q{
     expect(Building.count).to eql(prev_count + 1)
   end
 
-  scenario 'does not enter information in the required format' do
-    prev_count = Building.count
-    visit new_building_url
-
-    click_button 'Record'
-    expect(page).to_not have_content('Building was successfully recorded')
-    expect(Building.count).to eql(prev_count)
-  end
-
+#TODO
 end
